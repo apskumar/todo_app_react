@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,10 +11,22 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { post } from '../core/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function SignUp() {
   const theme = createTheme();
+
+  const isLoggedIn = useSelector(state=>state.isLoggedIn);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    if(isLoggedIn){
+      history.push("/home");
+    }
+  }, [isLoggedIn]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,11 +35,6 @@ function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
       name: data.get('firstName')
-    });
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      name: data.get('firstName'),
     });
   };
 

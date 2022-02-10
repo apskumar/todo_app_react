@@ -13,9 +13,9 @@ class Router extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact component={SignIn} path="/" />
-          <Route component={Home} path="/home" exact />
           <Route component={SignIn} path="/login" exact />
-          <PrivateRoute component={SignUp} path="/signup" exact />
+          <Route component={SignUp} path="/signup" exact />
+          <PrivateRoute component={Home} path="/home" exact />
         </Switch>
       </BrowserRouter>
     );

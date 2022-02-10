@@ -59,7 +59,7 @@ export const create_todo = async (params) =>{
 
 export const delete_todo = async (params) =>{
     try{
-      let response = await deletes('/api/posts?id='+params);
+      let response = await deletes('/api/posts/'+params);
       return response.data;
     }
     catch(e){

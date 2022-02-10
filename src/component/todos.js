@@ -64,11 +64,14 @@ const Todos = () => {
 
     const update =(row)=>{
        dispatch(update_todos(selected));
-       setHasChange(false);
+       setHasChange(true);
+       setSelected(null);
     }
 
     const onDeleteMode = id => {
        dispatch(delete_todos(id));
+       setHasChange(true);
+       setSelected(null);
     };
 
 

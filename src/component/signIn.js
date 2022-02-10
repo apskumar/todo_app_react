@@ -13,7 +13,6 @@ function SignIn() {
 
   useEffect(() => {
     if(isLoggedIn){
-      alert("");
       history.push("/home");
     }
   }, [isLoggedIn]);
